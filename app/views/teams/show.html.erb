@@ -1,0 +1,10 @@
+<h1><%= @team.name %></h1>
+
+<strong><%= pluralize(@team.players.count, "Member") %></strong>
+<ul>
+<% @team.players.each do |player| %>
+  <li><%= player.name %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Back', teams_path %>

@@ -1,0 +1,30 @@
+<%= form_with model: @selection, local: true do |form| %>
+
+  <% if @selection.errors.any? %>
+    <div id="error explenation">
+      <h2>
+        <%= pluralize(@selection.errors.count, "error") %> prohibited
+        this selection from being saved:
+      </h2>
+      <ul>
+        <% @selection.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :team1 %><br>
+    <%= form.text_field :team1 %>
+  </p>
+
+  <p>
+    <%= form.label :team2 %><br>
+    <%= form.text_area :team2 %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

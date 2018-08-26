@@ -1,0 +1,24 @@
+<h1>Listing players</h1>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @players.each do |player| %>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= link_to 'Edit', edit_player_path(player) %></td>
+      <td><%= link_to 'Delete', player_path(player),
+              method: :delete,
+	      data: { confirm: 'Are you shure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+<%= link_to 'New Player', new_player_path %>
+</p>
+
+<%= link_to 'Back', welcome_index_path %>
